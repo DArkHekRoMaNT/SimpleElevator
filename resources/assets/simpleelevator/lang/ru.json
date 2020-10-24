@@ -1,0 +1,9 @@
+{
+  "block-elevator-*-normal": "Лифт",
+  "block-elevator-*-temporal": "Темпоральный лифт",
+
+  "item-dust-temporal": "Темпоральная пыль",
+
+  "heldhelp-material": "Металл: {0}",
+  "heldhelp-range": "Дальность: {0}"
+}

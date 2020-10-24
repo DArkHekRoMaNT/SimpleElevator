@@ -1,0 +1,138 @@
+{
+  "code": "elevator",
+  "class": "BlockElevator",
+  "entityclass": "BlockEntityElevator",
+  "variantgroups": [
+    {
+      "code": "metal",
+      "states": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "gold",
+        "silver",
+        "iron"
+      ]
+    },
+    { "code": "type", "states": ["normal", "temporal"] }
+  ],
+  "attributes": {
+    "range": {
+      "copper": 8,
+      "tinbronze": 16,
+      "bismuthbronze": 16,
+      "blackbronze": 16,
+      "gold": 32,
+      "silver": 32,
+      "iron": 64
+    }
+  },
+  "creativeinventory": { "general": ["*"] },
+  "shape": { "base": "game:block/basic/cube" },
+  "drawtype": "cube",
+  "blockmaterial": "Metal",
+  "texturesByType": {
+    "*-normal": {
+      "horizontals": {
+        "base": "game:block/metal/sheet/{metal}1",
+        "alternates": [
+          { "base": "game:block/metal/sheet/{metal}2" },
+          { "base": "game:block/metal/sheet/{metal}3" },
+          { "base": "game:block/metal/sheet/{metal}4" },
+          { "base": "game:block/metal/sheet/{metal}5" }
+        ]
+      },
+      "verticals": {
+        "base": "game:block/metal/sheet/{metal}1",
+        "overlays": ["simpleelevator/block/elevator/top"],
+        "alternates": [
+          {
+            "base": "game:block/metal/sheet/{metal}2",
+            "overlays": ["simpleelevator/block/elevator/top"]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}3",
+            "overlays": ["simpleelevator/block/elevator/top"]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}4",
+            "overlays": ["simpleelevator/block/elevator/top"]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}5",
+            "overlays": ["simpleelevator/block/elevator/top"]
+          }
+        ]
+      }
+    },
+    "*-temporal": {
+      "horizontals": {
+        "base": "game:block/metal/sheet/{metal}1",
+        "overlays": ["simpleelevator/block/elevator/corners"],
+        "alternates": [
+          {
+            "base": "game:block/metal/sheet/{metal}2",
+            "overlays": ["simpleelevator/block/elevator/corners"]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}3",
+            "overlays": ["simpleelevator/block/elevator/corners"]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}4",
+            "overlays": ["simpleelevator/block/elevator/corners"]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}5",
+            "overlays": ["simpleelevator/block/elevator/corners"]
+          }
+        ]
+      },
+      "verticals": {
+        "base": "game:block/metal/sheet/{metal}1",
+        "overlays": [
+          "simpleelevator/block/elevator/top",
+          "simpleelevator/block/elevator/corners"
+        ],
+        "alternates": [
+          {
+            "base": "game:block/metal/sheet/{metal}2",
+            "overlays": [
+              "simpleelevator/block/elevator/top",
+              "simpleelevator/block/elevator/corners"
+            ]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}3",
+            "overlays": [
+              "simpleelevator/block/elevator/top",
+              "simpleelevator/block/elevator/corners"
+            ]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}4",
+            "overlays": [
+              "simpleelevator/block/elevator/top",
+              "simpleelevator/block/elevator/corners"
+            ]
+          },
+          {
+            "base": "game:block/metal/sheet/{metal}5",
+            "overlays": [
+              "simpleelevator/block/elevator/top",
+              "simpleelevator/block/elevator/corners"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "heldTpIdleAnimation": "holdbothhandslarge",
+  "heldTpUseAnimation": "twohandplaceblock",
+  "tpHandTransform": {
+    "translation": { "x": -1.2, "y": -1.1, "z": -0.8 },
+    "rotation": { "x": -2, "y": 25, "z": -78 },
+    "scale": 0.37
+  }
+}

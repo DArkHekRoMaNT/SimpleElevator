@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "simpleelevator",
+  "name": "Simple Elevator",
+  "author": "DArkHekRoMaNT",
+  "version": "1.0.0",
+  "dependency": {
+    "game": "1.13.4"
+  },
+  "website": "https://github.com/darkhekromant/simpleelevator"
+}

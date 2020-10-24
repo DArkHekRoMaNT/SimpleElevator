@@ -1,0 +1,43 @@
+[
+  {
+    "ingredientPattern": "PDP,D_D,PDP",
+    "ingredients": {
+      "P": {
+        "type": "item",
+        "code": "game:metalplate-*",
+        "allowedVariants": [
+          "copper",
+          "tinbronze",
+          "bismuthbronze",
+          "blackbronze",
+          "gold",
+          "silver",
+          "iron"
+        ],
+        "name": "metal"
+      },
+      "D": { "type": "item", "code": "dust-temporal" }
+    },
+    "width": 3,
+    "height": 3,
+    "output": { "type": "block", "code": "elevator-{metal}-normal" }
+  },
+  {
+    "ingredientPattern": "E,G",
+    "ingredients": {
+      "E": {
+        "type": "block",
+        "code": "elevator-*-normal",
+        "name": "metal"
+      },
+      "G": {
+        "type": "item",
+        "code": "game:gear-temporal"
+      }
+    },
+    "width": 1,
+    "height": 2,
+    "shapeless": true,
+    "output": { "type": "block", "code": "elevator-{metal}-temporal" }
+  }
+]
