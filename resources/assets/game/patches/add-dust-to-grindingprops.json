@@ -7,7 +7,7 @@
       "gear-temporal": {
         "grindedStack": {
           "type": "item",
-          "code": "simpleelevator:dust-temporal",
+          "code": "dust-temporal",
           "quantity": 8
         }
       }

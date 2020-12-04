@@ -16,7 +16,7 @@
         ],
         "name": "metal"
       },
-      "D": { "type": "item", "code": "dust-temporal" }
+      "D": { "type": "item", "code": "game:dust-temporal" }
     },
     "width": 3,
     "height": 3,

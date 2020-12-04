@@ -2,8 +2,6 @@
   "block-elevator-*-normal": "Elevator",
   "block-elevator-*-temporal": "Elevator (Temporal)",
 
-  "item-dust-temporal": "Temporal Dust",
-
   "heldhelp-material": "Metal: {0}",
   "heldhelp-range": "Range: {0}"
 }
