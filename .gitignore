@@ -1,3 +1,5 @@
-/.ignore
+/ignore
 /bin
 /obj
+/releases
+/mods
