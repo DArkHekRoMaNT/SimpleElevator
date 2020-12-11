@@ -27,12 +27,13 @@ namespace SimpleElevator
 
         internal void OnEntityCollide(Entity entity)
         {
-            if (lastEntity != entity) lastEntity = entity;
+            if (entity is EntityAgent && lastEntity != entity) lastEntity = entity;
             lastCollideMs = Api.World.ElapsedMilliseconds;
         }
         public void OnServerGameTick(float dt)
         {
-            if (lastEntity != null)
+            // ! need remove entity is EntityAgent in new version
+            if (lastEntity != null && lastEntity is EntityAgent)
             {
                 if (Api.World.ElapsedMilliseconds - lastCollideMs > 300)
                 {

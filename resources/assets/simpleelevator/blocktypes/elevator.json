@@ -45,23 +45,23 @@
       },
       "verticals": {
         "base": "game:block/metal/sheet/{metal}1",
-        "overlays": ["simpleelevator/block/elevator/top"],
+        "overlays": ["block/elevator/top"],
         "alternates": [
           {
             "base": "game:block/metal/sheet/{metal}2",
-            "overlays": ["simpleelevator/block/elevator/top"]
+            "overlays": ["block/elevator/top"]
           },
           {
             "base": "game:block/metal/sheet/{metal}3",
-            "overlays": ["simpleelevator/block/elevator/top"]
+            "overlays": ["block/elevator/top"]
           },
           {
             "base": "game:block/metal/sheet/{metal}4",
-            "overlays": ["simpleelevator/block/elevator/top"]
+            "overlays": ["block/elevator/top"]
           },
           {
             "base": "game:block/metal/sheet/{metal}5",
-            "overlays": ["simpleelevator/block/elevator/top"]
+            "overlays": ["block/elevator/top"]
           }
         ]
       }
@@ -69,60 +69,45 @@
     "*-temporal": {
       "horizontals": {
         "base": "game:block/metal/sheet/{metal}1",
-        "overlays": ["simpleelevator/block/elevator/corners"],
+        "overlays": ["block/elevator/corners"],
         "alternates": [
           {
             "base": "game:block/metal/sheet/{metal}2",
-            "overlays": ["simpleelevator/block/elevator/corners"]
+            "overlays": ["block/elevator/corners"]
           },
           {
             "base": "game:block/metal/sheet/{metal}3",
-            "overlays": ["simpleelevator/block/elevator/corners"]
+            "overlays": ["block/elevator/corners"]
           },
           {
             "base": "game:block/metal/sheet/{metal}4",
-            "overlays": ["simpleelevator/block/elevator/corners"]
+            "overlays": ["block/elevator/corners"]
           },
           {
             "base": "game:block/metal/sheet/{metal}5",
-            "overlays": ["simpleelevator/block/elevator/corners"]
+            "overlays": ["block/elevator/corners"]
           }
         ]
       },
       "verticals": {
         "base": "game:block/metal/sheet/{metal}1",
-        "overlays": [
-          "simpleelevator/block/elevator/top",
-          "simpleelevator/block/elevator/corners"
-        ],
+        "overlays": ["block/elevator/top", "block/elevator/corners"],
         "alternates": [
           {
             "base": "game:block/metal/sheet/{metal}2",
-            "overlays": [
-              "simpleelevator/block/elevator/top",
-              "simpleelevator/block/elevator/corners"
-            ]
+            "overlays": ["block/elevator/top", "block/elevator/corners"]
           },
           {
             "base": "game:block/metal/sheet/{metal}3",
-            "overlays": [
-              "simpleelevator/block/elevator/top",
-              "simpleelevator/block/elevator/corners"
-            ]
+            "overlays": ["block/elevator/top", "block/elevator/corners"]
           },
           {
             "base": "game:block/metal/sheet/{metal}4",
-            "overlays": [
-              "simpleelevator/block/elevator/top",
-              "simpleelevator/block/elevator/corners"
-            ]
+            "overlays": ["block/elevator/top", "block/elevator/corners"]
           },
           {
             "base": "game:block/metal/sheet/{metal}5",
-            "overlays": [
-              "simpleelevator/block/elevator/top",
-              "simpleelevator/block/elevator/corners"
-            ]
+            "overlays": ["block/elevator/top", "block/elevator/corners"]
           }
         ]
       }
