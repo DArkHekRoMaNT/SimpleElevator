@@ -19,7 +19,7 @@ namespace SimpleElevator
             {
                 if (Block?.Attributes != null)
                 {
-                    range = (Block as BlockElevator).GetRange();
+                    range = (Block as BlockElevator).Range;
                     RegisterGameTickListener(OnServerGameTick, 50);
                 }
             }

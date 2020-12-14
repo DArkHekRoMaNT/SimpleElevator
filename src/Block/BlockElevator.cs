@@ -8,9 +8,12 @@ namespace SimpleElevator
 {
     public class BlockElevator : Block
     {
-        public int GetRange()
+        public int Range
         {
-            return Attributes["range"][LastCodePart(1)].AsInt() * (LastCodePart(0) == "temporal" ? 2 : 1);
+            get
+            {
+                return Attributes["range"][LastCodePart(1)].AsInt() * (LastCodePart(0) == "temporal" ? 2 : 1);
+            }
         }
         public override void OnEntityCollide(IWorldAccessor world, Entity entity, BlockPos pos, BlockFacing facing, Vec3d collideSpeed, bool isImpact)
         {

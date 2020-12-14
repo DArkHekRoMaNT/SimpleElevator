@@ -12,7 +12,9 @@
         "blackbronze",
         "gold",
         "silver",
-        "iron"
+        "iron",
+        "meteoriciron",
+        "steel"
       ]
     },
     { "code": "type", "states": ["normal", "temporal"] }
@@ -25,10 +27,12 @@
       "blackbronze": 16,
       "gold": 32,
       "silver": 32,
-      "iron": 64
+      "iron": 64,
+      "meteoriciron": 72,
+      "steel": 96
     }
   },
-  "creativeinventory": { "general": ["*"] },
+  "creativeinventory": { "general": ["*"], "simpleelevalor": ["*"] },
   "shape": { "base": "game:block/basic/cube" },
   "drawtype": "cube",
   "blockmaterial": "Metal",

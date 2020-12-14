@@ -12,7 +12,9 @@
           "blackbronze",
           "gold",
           "silver",
-          "iron"
+          "iron",
+          "meteoriciron",
+          "steel"
         ],
         "name": "metal"
       },

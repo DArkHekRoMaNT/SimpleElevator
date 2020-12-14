@@ -3,5 +3,7 @@
   "block-elevator-*-temporal": "Elevator (Temporal)",
 
   "heldhelp-material": "Metal: {0}",
-  "heldhelp-range": "Range: {0}"
+  "heldhelp-range": "Range: {0}",
+
+  "game:tabname-simpleelevalor": "Simple Elevator"
 }
