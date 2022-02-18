@@ -5,7 +5,7 @@
   "author": "DArkHekRoMaNT",
   "version": "1.2.0",
   "dependency": {
-    "game": "1.15.0"
+    "game": "1.16.0"
   },
   "website": "https://github.com/darkhekromant/simpleelevator"
 }

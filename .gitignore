@@ -1,5 +1,8 @@
 /ignore
 /bin
 /obj
-/releases
 /mods
+/releases
+/.vs
+/*.csproj.user
+/*.sln
