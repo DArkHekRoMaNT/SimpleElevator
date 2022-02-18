@@ -5,5 +5,7 @@
   "heldhelp-material": "Metal: {0}",
   "heldhelp-range": "Range: {0}",
 
-  "game:tabname-simpleelevalor": "Simple Elevator"
+  "game:tabname-simpleelevalor": "Simple Elevator",
+
+  "elevator-notenoughspace": "Not enough space"
 }

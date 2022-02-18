@@ -1,0 +1,83 @@
+[
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/copper",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeCopper",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/tinbronze",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeTinBronze",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/bismuthbronze",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeBismuthBronze",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/blackbronze",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeBlackBronze",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/gold",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeGold",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/silver",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeSilver",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/iron",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeIron",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/meteoriciron",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeMeteoricIron",
+      "useValue": "true"
+    }
+  },
+  {
+    "file": "blocktypes/elevator.json",
+    "op": "replace",
+    "path": "/attributes/range/steel",
+    "condition": {
+      "when": "simpleelevator:ElevatorRangeSteel",
+      "useValue": "true"
+    }
+  }
+]

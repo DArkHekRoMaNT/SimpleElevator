@@ -3,5 +3,7 @@
   "block-elevator-*-temporal": "Темпоральный лифт",
 
   "heldhelp-material": "Металл: {0}",
-  "heldhelp-range": "Дальность: {0}"
+  "heldhelp-range": "Дальность: {0}",
+
+  "elevator-notenoughspace": "Недостаточно места"
 }

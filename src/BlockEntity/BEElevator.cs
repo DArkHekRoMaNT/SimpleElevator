@@ -1,75 +1,119 @@
+using SharedUtils;
+using SharedUtils.Extensions;
 using System;
+using System.Collections.Generic;
 using Vintagestory.API.Common;
-using Vintagestory.API.Common.Entities;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 
 namespace SimpleElevator
 {
     class BlockEntityElevator : BlockEntity
     {
+        public int Range => (Block as BlockElevator)?.Range ?? 0;
 
-        long lastCollideMs;
-        Entity lastEntity;
-        int range;
+        private readonly List<CollidedEntity> _collidedEntities = new List<CollidedEntity>();
+
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
 
             if (api.Side == EnumAppSide.Server)
             {
-                if (Block?.Attributes != null)
+                if (Range > 0)
                 {
-                    range = (Block as BlockElevator).Range;
-                    RegisterGameTickListener(OnServerGameTick, 50);
+                    RegisterGameTickListener(OnServerGameTick, 100);
                 }
             }
         }
 
-        internal void OnEntityCollide(Entity entity)
+        public void OnEntityCollide(EntityAgent entity)
         {
-            if (entity is EntityAgent && lastEntity != entity) lastEntity = entity;
-            lastCollideMs = Api.World.ElapsedMilliseconds;
+            if (entity == null) return;
+
+            bool exists = false;
+
+            foreach (var ce in _collidedEntities)
+            {
+                if (ce.Entity.EntityId == entity.EntityId)
+                {
+                    exists = true;
+                    ce.LastTime = Api.World.ElapsedMilliseconds;
+                }
+            }
+
+            if (!exists)
+            {
+                _collidedEntities.Add(new CollidedEntity()
+                {
+                    Entity = entity,
+                    LastTime = Api.World.ElapsedMilliseconds
+                });
+            }
         }
+
         public void OnServerGameTick(float dt)
         {
-            // ! need remove entity is EntityAgent in new version
-            if (lastEntity != null && lastEntity is EntityAgent)
+            var toRemove = new List<CollidedEntity>();
+
+            foreach (var ce in _collidedEntities)
             {
-                if (Api.World.ElapsedMilliseconds - lastCollideMs > 300)
+                if (Api.World.ElapsedMilliseconds - ce.LastTime > 300)
                 {
-                    lastEntity = null;
-                    return;
+                    toRemove.Add(ce);
+                    continue;
                 }
-                if (Api.Side == EnumAppSide.Server)
+
+                if (ce.Entity.Controls.Sneak)
                 {
-                    if ((lastEntity as EntityAgent).Controls.Sneak)
+                    TriggerTeleport(ce.Entity, Range, BlockFacing.DOWN);
+                }
+                else if (ce.Entity.Controls.Jump)
+                {
+                    TriggerTeleport(ce.Entity, Range, BlockFacing.UP);
+                }
+            }
+
+            foreach (var ce in toRemove)
+            {
+                _collidedEntities.Remove(ce);
+            }
+        }
+
+        private void TriggerTeleport(EntityAgent entity, int range, BlockFacing dir)
+        {
+            BlockPos nextPos = Pos.Copy();
+            for (int i = 1; i <= range; i++)
+            {
+                nextPos.Offset(dir);
+                Block nextBlock = Api.World.BlockAccessor.GetBlock(nextPos);
+                if (nextBlock is BlockElevator)
+                {
+                    if (CheckArea(nextPos.Copy()))
                     {
-                        for (int i = 1; i <= range; i++)
-                        {
-                            if (TryTP(-i)) break;
-                        }
+                        entity.TeleportToDouble(nextPos.X + 0.5, nextPos.Y + 1, nextPos.Z + 0.5);
                     }
-                    else if ((lastEntity as EntityAgent).Controls.Jump)
+                    else
                     {
-                        for (int i = 1; i <= range; i++)
-                        {
-                            if (TryTP(i)) break;
-                        }
+                        entity.SendMessage(Lang.Get(ConstantsCore.ModId + ":elevator-notenoughspace"));
                     }
+                    break;
                 }
             }
         }
 
-        internal bool TryTP(int shiftY)
+        private bool CheckArea(BlockPos nextPos)
         {
-            BlockPos newPos = new BlockPos(Pos.X, Pos.Y + shiftY, Pos.Z);
-            Block sec = Api.World.BlockAccessor.GetBlock(newPos);
-            if (sec.GetType() == Type.GetType(SimpleElevator.MOD_SPACE + ".BlockElevator"))
-            {
-                lastEntity.TeleportTo(new Vec3d(newPos.X, newPos.Y, newPos.Z).Add(.5, 1, .5));
-                return true;
-            }
-            return false;
+            int id1 = Api.World.BlockAccessor.GetBlockId(nextPos.Add(0, 1, 0));
+            int id2 = Api.World.BlockAccessor.GetBlockId(nextPos.Add(0, 1, 0));
+
+            return id1 == 0 && id2 == 0; // is air
         }
+    }
+
+    public class CollidedEntity
+    {
+        public EntityAgent Entity { get; set; }
+        public long LastTime { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using SharedUtils;
 using System.Text;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -8,22 +9,27 @@ namespace SimpleElevator
 {
     public class BlockElevator : Block
     {
+        public string Material => LastCodePart(1);
+        public string Type => LastCodePart(0);
         public int Range
         {
             get
             {
-                return Attributes["range"][LastCodePart(1)].AsInt() * (LastCodePart(0) == "temporal" ? 2 : 1);
+                float mult = Type == "temporal" ? Core.Config.TemporalElevatorMultiplier : 1;
+                return (int)(Attributes["range"]?[Material]?.AsInt() * mult);
             }
         }
+
         public override void OnEntityCollide(IWorldAccessor world, Entity entity, BlockPos pos, BlockFacing facing, Vec3d collideSpeed, bool isImpact)
         {
             base.OnEntityCollide(world, entity, pos, facing, collideSpeed, isImpact);
 
-            if (facing == BlockFacing.UP)
+            if (facing == BlockFacing.UP && entity is EntityAgent agent)
             {
-                BlockEntityElevator be = world.BlockAccessor.GetBlockEntity(pos) as BlockEntityElevator;
-                if (be == null) return;
-                be.OnEntityCollide(entity);
+                if (world.BlockAccessor.GetBlockEntity(pos) is BlockEntityElevator be)
+                {
+                    be.OnEntityCollide(agent);
+                }
             }
         }
 
@@ -31,14 +37,8 @@ namespace SimpleElevator
         {
             base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
 
-            dsc.AppendLine(Lang.Get(
-                SimpleElevator.MOD_ID + ":heldhelp-material",
-                Lang.Get("material-" + LastCodePart(1))
-            ));
-            dsc.AppendLine(Lang.Get(
-                SimpleElevator.MOD_ID + ":heldhelp-range",
-                Attributes["range"][LastCodePart(1)].AsInt() * (LastCodePart(0) == "temporal" ? 2 : 1)
-            ));
+            dsc.AppendLine(Lang.Get(ConstantsCore.ModId + ":heldhelp-material", Lang.Get("material-" + Material)));
+            dsc.AppendLine(Lang.Get(ConstantsCore.ModId + ":heldhelp-range", Range));
         }
     }
 }
